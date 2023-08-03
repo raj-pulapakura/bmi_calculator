@@ -20,18 +20,19 @@ class BMIEntryList extends StatelessWidget {
         itemCount: bmiEntries.length,
         itemBuilder: (context, index) {
           final entry = bmiEntries[index];
-          return Dismissible(
-            key: UniqueKey(),
-            onDismissed: (direction) => onRemoveEntry(entry),
-            background: Container(
-              color: Theme.of(context).colorScheme.error,
-              margin: Theme.of(context).cardTheme.margin,
-            ),
-            child: SizedBox(
-              width: double.infinity,
-              child: BMIEntryItem(entry: entry),
-            ),
-          );
+          // return Dismissible(
+          //   key: UniqueKey(),
+          //   onDismissed: (direction) => onRemoveEntry(entry),
+          //   background: Container(
+          //     color: Theme.of(context).colorScheme.error,
+          //     margin: Theme.of(context).cardTheme.margin,
+          //   ),
+          //   child: SizedBox(
+          //     width: double.infinity,
+          //     child: BMIEntryItem(entry: entry),
+          //   ),
+          // );
+          return BMIEntryItem(entry: entry);
         },
       ),
     );

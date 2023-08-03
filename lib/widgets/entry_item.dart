@@ -28,39 +28,35 @@ class _BMIEntryItemState extends State<BMIEntryItem> {
   Widget build(BuildContext context) {
     final height = widget.entry.displayMeasurements[0];
     final weight = widget.entry.displayMeasurements[1];
-
+// Text(
+//               dateFormatter.format(widget.entry.date),
+//               style: Theme.of(context).textTheme.bodySmall,
+//             ),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Text(
+//                   'Height: $height',
+//                   style: Theme.of(context).textTheme.bodySmall,
+//                 ),
+//                 Text(
+//                   'Weight: $weight',
+//                   style: Theme.of(context).textTheme.bodySmall,
+//                 ),
+//               ],
+//             ),
+//             Text(
+//               'Body Mass Index: ${widget.entry.bmi}',
+//               style: Theme.of(context).textTheme.bodySmall,
+//             ),
     return InkWell(
       onTap: onExpandItem,
-      child: SizedBox(
-        height: 140,
-        width: 80,
-        child: Card(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                dateFormatter.format(widget.entry.date),
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Height: $height',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  const SizedBox(width: 30),
-                  Text('Weight: $weight'),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Body Mass Index: ${widget.entry.bmi}',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-            ],
-          ),
+      child: Container(
+        color: Colors.red,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [Text("Hello")],
         ),
       ),
     );
