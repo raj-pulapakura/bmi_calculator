@@ -8,6 +8,7 @@ extension StringExtension on String {
 
   String toTitleCase() => replaceAll(RegExp(' +'), ' ')
       .split('_')
+      
       .map((str) => str.capitalize())
       .join(' ');
 }

@@ -129,8 +129,11 @@ class _BMICalculatorState extends State<BMICalculator> {
               ],
             ),
             Expanded(
-                child: BMIEntryList(
-                    bmiEntries: bmiEntries, onRemoveEntry: onRemoveEntry)),
+              child: BMIEntryList(
+                bmiEntries: bmiEntries,
+                onRemoveEntry: onRemoveEntry,
+              ),
+            ),
           ],
         ),
       ),

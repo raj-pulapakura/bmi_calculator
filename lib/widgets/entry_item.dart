@@ -5,59 +5,49 @@ import 'package:intl/intl.dart';
 
 final dateFormatter = DateFormat.yMd();
 
-class BMIEntryItem extends StatefulWidget {
+class BMIEntryItem extends StatelessWidget {
   const BMIEntryItem({super.key, required this.entry});
 
   final BMIEntry entry;
 
-  @override
-  State<StatefulWidget> createState() {
-    return _BMIEntryItemState();
-  }
-}
-
-class _BMIEntryItemState extends State<BMIEntryItem> {
-  void onExpandItem() {
+  void onExpandItem(BuildContext context) {
     showDialog(
       context: context,
-      builder: (ctx) => ExpandedEntryItem(entry: widget.entry),
+      builder: (ctx) => ExpandedEntryItem(entry: entry),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final height = widget.entry.displayMeasurements[0];
-    final weight = widget.entry.displayMeasurements[1];
-// Text(
-//               dateFormatter.format(widget.entry.date),
-//               style: Theme.of(context).textTheme.bodySmall,
-//             ),
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Text(
-//                   'Height: $height',
-//                   style: Theme.of(context).textTheme.bodySmall,
-//                 ),
-//                 Text(
-//                   'Weight: $weight',
-//                   style: Theme.of(context).textTheme.bodySmall,
-//                 ),
-//               ],
-//             ),
-//             Text(
-//               'Body Mass Index: ${widget.entry.bmi}',
-//               style: Theme.of(context).textTheme.bodySmall,
-//             ),
+    final height = entry.displayMeasurements[0];
+    final weight = entry.displayMeasurements[1];
+
     return InkWell(
-      onTap: onExpandItem,
-      child: Container(
-        color: Colors.red,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [Text("Hello")],
-        ),
+      onTap: () => onExpandItem(context),
+      child: Card(
+        child: Column(children: [
+          Text(
+            dateFormatter.format(entry.date),
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Height: $height',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              Text(
+                'Weight: $weight',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
+          Text(
+            'Body Mass Index: ${entry.bmi}',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ]),
       ),
     );
   }
